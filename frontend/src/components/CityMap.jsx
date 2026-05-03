@@ -82,21 +82,17 @@ function CityMap({ vehicles = [], congestion = [], incidents = [] }) {
       }} />
 
       {/* cladiri */}
-      <div style={{ ...buildingBaseStyle, left: "15px", top: "35px", backgroundColor: "#fab1a0" }}>
-        Hospital
-      </div>
+    <div style={{ ...buildingBaseStyle, left: "15px", top: "35px", backgroundColor: "#fab1a0" }}>Hospital</div>
+    <div style={{ ...buildingBaseStyle, left: "210px", top: "35px", backgroundColor: "#ffeaa7" }}>School</div>
+    <div style={{ ...buildingBaseStyle, left: "400px", top: "35px", backgroundColor: "#81ecec" }}>Police</div>
 
-      <div style={{ ...buildingBaseStyle, left: "205px", top: "35px", backgroundColor: "#ffeaa7" }}>
-        School
-      </div>
+    <div style={{ ...buildingBaseStyle, left: "15px", top: "210px", backgroundColor: "#a29bfe" }}>Mall</div>
+    <div style={{ ...buildingBaseStyle, left: "210px", top: "210px", backgroundColor: "#55efc4" }}>Office</div>
+    <div style={{ ...buildingBaseStyle, left: "400px", top: "210px", backgroundColor: "#fab1a0" }}>Bank</div>
 
-      <div style={{ ...buildingBaseStyle, left: "15px", top: "400px", backgroundColor: "#a29bfe" }}>
-        Mall
-      </div>
-
-      <div style={{ ...buildingBaseStyle, left: "210px", top: "400px", backgroundColor: "#81ecec" }}>
-        Office
-      </div>
+    <div style={{ ...buildingBaseStyle, left: "15px", top: "390px", backgroundColor: "#ffeaa7" }}>Hotel</div>
+    <div style={{ ...buildingBaseStyle, left: "210px", top: "390px", backgroundColor: "#81ecec" }}>Cinema</div>
+    <div style={{ ...buildingBaseStyle, left: "400px", top: "390px", backgroundColor: "#a29bfe" }}>University</div>
 
       {/* masini */}
       {vehicles.map((vehicle, index) => {
