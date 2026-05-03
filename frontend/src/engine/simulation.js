@@ -52,3 +52,15 @@ function moveVehicles(vehicles) {
         return {...v, x: newX, y: newY, dx: newDx, dy: newDy };
     });
 }
+
+export function detectCongestion(vehicles) {
+    const roadCount = {};
+
+    vehicles.forEach((v) => {
+        roadCount[v.road] = (roadCount[v.road] || 0) + 1;
+    });
+
+    return Object.entries(roadCount)
+        .filter(([_, count]) => count >= CONGESTION_THRESHOLD)
+        .map(([road]) => road);
+}
