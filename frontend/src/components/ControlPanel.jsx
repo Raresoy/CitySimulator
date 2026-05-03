@@ -9,7 +9,7 @@ function ControlPanel({
     margin: "5px",
     border: "none",
     borderRadius: "8px",
-    backgroundColor: "#0984e3",
+    backgroundColor: "#6c5ce7",
     color: "white",
     fontWeight: "bold",
     cursor: "pointer",
