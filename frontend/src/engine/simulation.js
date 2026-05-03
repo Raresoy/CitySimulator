@@ -26,3 +26,29 @@ function generateVehicles(count) {
         road: ROADS[Math.floor(Math.random() * ROADS.length)],
     }));
 }
+
+export function updateCity(state) {
+    const movedVehicles = moveVehicles(state.vehicles);
+    const congestion = detectCongestion(movedVehicles);
+
+    return {
+        ...state,
+        vehicles: movedVehicles,
+        congestion,
+        tick: state.tick + 1,
+    };
+}
+
+function moveVehicles(vehicles) {
+    return vehicles.map((v) => {
+        let newX = v.x + v.dx;
+        let newY = v.y + v.dy;
+        let newDx = v.dx;
+        let newDy = v.dy;
+
+        if (newX < 0 || newX > GRID_SIZE) newDx = -newDx;
+        if (newY < 0 || newY > GRID_SIZE) newDy = -newDy;
+
+        return {...v, x: newX, y: newY, dx: newDx, dy: newDy };
+    });
+}
