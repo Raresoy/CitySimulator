@@ -64,3 +64,27 @@ export function detectCongestion(vehicles) {
         .filter(([_, count]) => count >= CONGESTION_THRESHOLD)
         .map(([road]) => road);
 }
+
+export function addIncident(state) {
+    const road = ROADS[Math.floor(Math.random() * ROADS.length)];
+    const incident = {
+        id: Date.now(),
+        road,
+        type: "accident",
+        resolved: false,
+    };
+
+    return {
+        ...state,
+        incidents: [...state.incidents, incident],
+    };
+}
+
+export function resolveIncident(state, incidentId) {
+    return {
+        ...state,
+        incidents: state.incidents.map((inc) =>
+            inc.id === incidentId ? {...inc, resolved: true } : inc
+        ),
+    };
+}
