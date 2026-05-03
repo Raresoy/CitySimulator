@@ -55,7 +55,7 @@ function App() {
       }}
     >
       <h1 style={{ textAlign: "center", fontSize: "48px", color: "#2d3436" }}>
-        Smart City Simulator
+        Smart City Simulator - AI Demo
       </h1>
 
       <p style={{ textAlign: "center", color: "#636e72", fontSize: "18px" }}>
