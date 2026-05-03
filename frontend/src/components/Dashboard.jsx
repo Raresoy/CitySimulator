@@ -16,7 +16,7 @@ function Dashboard({ cityState, isRunning, aiDecision }) {
         boxSizing: "border-box",
       }}
     >
-      <h2 style={{ marginTop: 0 }}>City Dashboard</h2>
+      <h2 style={{ marginTop: 0 }}>Smart City Dashboard</h2>
 
       <p><strong>Simulation:</strong> {isRunning ? "Running" : "Stopped"}</p>
 
