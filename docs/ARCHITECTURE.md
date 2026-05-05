@@ -1,65 +1,113 @@
 # Architecture
 
-The Smart City Simulator uses a simple web architecture.
+The Smart City Simulator uses a simple web architecture based on a React frontend, a simulation engine and multiple AI agents.
+
+## Architecture diagram
+
+```mermaid
+flowchart TD
+    User[User] --> UI[Frontend UI]
+    UI --> Map[City Map]
+    UI --> Dashboard[Dashboard]
+    UI --> Controls[Control Panel]
+
+    Controls --> Engine[Simulation Engine]
+    Engine --> State[City State]
+
+    State --> TrafficAgent[Traffic Manager Agent]
+    State --> EmergencyAgent[Emergency Response Agent]
+    State --> EnergyAgent[Energy Manager Agent]
+
+    TrafficAgent --> Decisions[Agent Decisions]
+    EmergencyAgent --> Decisions
+    EnergyAgent --> Decisions
+
+    Decisions --> Dashboard
+    Decisions --> Map
+```
 
 ## Main components
 
-```text
-User
- |
-Frontend UI
- |
-City Map + Dashboard
- |
-Simulation Engine
- |
-AI Agents
- |
-City State / Data
-```
+### Frontend UI
 
-## Frontend UI
+The frontend displays the simulated city and allows the user to interact with the simulation.
 
-The frontend displays the simulated city, including roads, buildings, vehicles, citizens, incidents and dashboard information.
+It includes:
 
-## Simulation Engine
+- city map
+- dashboard
+- control panel
+- visual representation of vehicles, roads, buildings and incidents
 
-The simulation engine updates the state of the city.
+### Simulation Engine
+
+The simulation engine updates the city state.
 
 It handles:
 
 - vehicle movement
 - traffic density
 - congestion detection
-- incidents
+- incident generation
+- incident resolution
 - city status updates
 
-## AI Agents
+### AI Agents
 
-The project includes AI agents that make automatic decisions based on the current city state.
+The project includes multiple AI agents that make automatic decisions based on the current state of the city.
 
-### Traffic Manager Agent
-
-Responsibilities:
-
-- analyzes traffic congestion
-- recommends route changes
-- helps emergency vehicles pass faster
-
-### Emergency Response Agent
+#### Traffic Manager Agent
 
 Responsibilities:
 
-- detects emergency situations
-- sends emergency vehicles
-- requests traffic priority
+- analyzes road congestion
+- detects traffic problems
+- recommends traffic optimization decisions
 
-## City State
+#### Emergency Response Agent
 
-The city state contains information such as:
+Responsibilities:
+
+- detects active incidents
+- sends emergency response decisions
+- requests priority for emergency situations
+
+#### Energy Manager Agent
+
+Responsibilities:
+
+- monitors city energy usage
+- identifies high energy usage situations
+- recommends energy saving decisions
+
+### City State
+
+The city state contains the current simulation data.
+
+It includes:
 
 - roads
 - vehicles
+- buildings
 - incidents
 - traffic levels
+- energy usage
 - agent decisions
+
+## Data flow
+
+```text
+User action
+   |
+Control Panel
+   |
+Simulation Engine
+   |
+Updated City State
+   |
+AI Agents analyze state
+   |
+Agent decisions
+   |
+Dashboard and City Map update
+```
