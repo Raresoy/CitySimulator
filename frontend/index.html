@@ -438,7 +438,10 @@
     </div>
     <div id="tooltip"></div>
 
-    <script>
+    <script type="module">
+        import { trafficAgentDecision } from './src/agents/trafficAgent.js';
+        import { emergencyAgentDecision } from './src/agents/emergencyAgent.js';
+        import { energyAgentDecision } from './src/agents/energyAgent.js';
         // ─── CONFIG ───────────────────────────────────────────────
         const GRID = 7,
             CELL = 72,
@@ -1040,6 +1043,39 @@
         async function runAutoAI() {
             if (aiThinking) return;
             aiThinking = true;
+
+            // 1. Pregătim starea orașului pentru agenții tăi
+            const cityState = {
+                roads: roads.map(r => ({
+                    id: r.id,
+                    name: (r.isHoriz ? 'E-W Road ' : 'N-S Road ') + r.id,
+                    congestionLevel: r.congestion * 100
+                })),
+                energyLevel: 80 + (cars.length / 30) * 15 // Simulăm energia
+            };
+
+            // 2. Agenții tăi iau decizii locale, super rapide!
+            const trafficDec = trafficAgentDecision(cityState);
+            if (trafficDec.action !== "NONE") {
+                addLog('event', trafficDec.message, '🚦');
+            }
+
+            const energyDec = energyAgentDecision(cityState);
+            if (energyDec.action !== "NORMAL") {
+                addLog('event', energyDec.message, '⚡');
+            }
+
+            if (incidents.length > 0) {
+                const emergencyDec = emergencyAgentDecision({
+                    type: incidents[0].type,
+                    location: 'Road ' + incidents[0].road
+                }, cityState);
+                if (emergencyDec.action !== "STANDBY") {
+                    addLog('event', emergencyDec.message, '🚑');
+                }
+            }
+
+            // 3. Claude face analiza de nivel înalt
             const typing = addTyping();
             try {
                 const r = await callClaude('There are ' + incidents.length + ' active incident(s). Provide immediate traffic management recommendations.');
@@ -1095,8 +1131,14 @@
             }
             aiThinking = false;
         }
+        window.toggleEmergencyMode = toggleEmergencyMode;
+        window.setSpeed = setSpeed;
+        window.clearAll = clearAll;
+        window.triggerAI = triggerAI;
+        window.askAI = askAI;
 
         // ─── START ────────────────────────────────────────────────
+    
         initCanvas();
         buildRoads();
         addLog('event', 'City simulation initialized. Grid: ' + GRID + '×' + GRID, '🏙️');
