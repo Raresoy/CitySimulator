@@ -12,7 +12,6 @@ Smart City Simulator este o aplicație web de înaltă fidelitate ce simulează 
 ---
 
 ## A. Demonstrație Proiect (Live Demo & Prezentare)
-- **Link Demo Prezentare (YouTube)**: 
 - **Prezentare locală**: 
   ```bash
   cd frontend
@@ -54,9 +53,7 @@ Am definit 10 User Stories care acoperă toate funcționalitățile dezvoltate:
 ---
 
 ### 2. Diagrame (UML, Arhitectură, Workflows) (1 pct)
-
-Toate diagramele noastre detaliate de arhitectură, componente și stări sunt documentate în:
-👉 **[Vizualizează Diagrame & Arhitectură](file:///Users/mihneavicol/FACULTATE/CitySimulator/docs/ARCHITECTURE.md)** (include diagrame de flux Mermaid pentru deplasarea ambulanței și structura componentelor).
+Diagramele sunt incluse în documentația proiectului.
 
 ---
 
@@ -83,7 +80,6 @@ Aplicația dispune de **14 teste automate** care rulează în framework-ul **Vit
 - Testarea deciziei de dispatch a Agentului de Urgență.
 - Testarea dinamică a grafului de pathfinding (evitarea segmentelor neconstruite de către mașini și prioritatea ambulanței pe străzi blocate).
 
-👉 **[Raport Detaliat de Testare & Evals](file:///Users/mihneavicol/FACULTATE/CitySimulator/docs/TESTING.md)**
 
 ---
 
@@ -111,7 +107,6 @@ Fiecare commit și Pull Request trimis către ramurile `dev` și `main` declanș
 ### 7. Raport despre utilizarea instrumentelor de AI (2 pct)
 
 Un raport complet despre modul în care instrumentele de AI (Gemini 3.5 Flash, ChatGPT, Copilot) au fost utilizate pentru generare cod, debug, planificare backlog și documentație:
-👉 **[Raport Utilizare Instrumente AI](file:///Users/mihneavicol/FACULTATE/CitySimulator/docs/AI_USAGE.md)**
 
 ---
 
@@ -141,7 +136,7 @@ Simulatorul rulează trei agenți software inteligenți specializați:
 3. **Agentul de Energie**: Activează modul economic (Eco Mode), stingând luminile clădirilor și reducând iluminatul stradal când rețeaua este supraîncărcată de mașini.
 
 Aplicația oferă **3 moduri de rulare LLM**:
-- **Offline Smart Agent (Implicit)**: Reguli euristice avansate cu generator local de explicații și rapoarte text care injectează „halucinații SF” reglabile prin slider.
+- **Offline Smart Agent (Implicit)**:  Reguli euristice avansate cu generator local de explicații și rapoarte text.
 - **Transformers.js**: Descarcă un model LLM mic direct în browser (e.g. `LaMini-78M`), rulând complet izolat prin WebAssembly/WebGPU.
 - **Ollama**: Se conectează la un server local Ollama activ pe portul implicit `11434` al utilizatorului, utilizând modele mai mari pentru a genera răspunsuri complexe.
 
