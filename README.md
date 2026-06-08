@@ -12,7 +12,7 @@ Smart City Simulator este o aplicație web de înaltă fidelitate ce simulează 
 ---
 
 ## A. Demonstrație Proiect (Live Demo & Prezentare)
-- **Link Demo Prezentare (YouTube)**: *[Loc pentru link-ul tău de YouTube, ex: https://youtube.com/watch?v=citysim-demo]*
+- **Link Demo Prezentare (YouTube)**: 
 - **Prezentare locală**: 
   ```bash
   cd frontend
