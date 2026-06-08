@@ -93,8 +93,8 @@ Aplicația dispune de **14 teste automate** care rulează în framework-ul **Vit
 
 ### 6. Pipeline CI/CD (1 pct)
 
-Fiecare commit și Pull Request trimis către ramurile `dev` și `main` declanșează automat execuția pipeline-ului nostru de Integrare Continuă (**GitHub Actions**):
-- Fişier workflow: [ci.yml](file:///Users/mihneavicol/FACULTATE/CitySimulator/.github/workflows/ci.yml)
+Fiecare commit și Pull Request trimis către ramurile `dev` și `main` declanșează automat execuția pipeline-ului nostru de Integrare Continuă (**GitHub Actions**)
+Fişier workflow: `.github/workflows/ci.yml`
 - **Etape automate**:
   1. Descărcarea codului sursă (`checkout`).
   2. Setup Node.js v20.
@@ -112,7 +112,7 @@ Un raport complet despre modul în care instrumentele de AI (Gemini 3.5 Flash, C
 
 ## C. Prezentare Detaliată Proiect (Raport Academic / LaTeX)
 
-Această secțiune conține varianta în format Markdown a raportului tehnic detaliat (disponibil și ca document sursă LaTeX în [presentation.tex](file:///Users/mihneavicol/FACULTATE/CitySimulator/presentation.tex) pentru compilare ca PDF academic).
+Această secțiune conține varianta în format Markdown a raportului tehnic detaliat (disponibil și ca document sursă LaTeX în `presentation.tex` pentru compilare ca PDF academic).
 
 ### 1. Introducere și Obiectivele Proiectului
 Obiectivul principal al proiectului **Smart City Simulator** este dezvoltarea unei simulări urbane interactive în care un operator uman cooperează cu agenți AI pentru gestionarea infrastructurii unui oraș inteligent. Aplicația oferă o simulare de trafic dinamică, posibilitatea construirii și demolării drumurilor în timp real, apariția aleatorie sau manuală a incidentelor (coliziuni auto, incendii, drumuri inundate) și rezolvarea automată a acestora prin dispatch-ul unui vehicul de intervenție prioritizat (ambulanța).
@@ -137,8 +137,8 @@ Simulatorul rulează trei agenți software inteligenți specializați:
 
 Aplicația oferă **3 moduri de rulare LLM**:
 - **Offline Smart Agent (Implicit)**:  Reguli euristice avansate cu generator local de explicații și rapoarte text.
-- **Transformers.js**: Descarcă un model LLM mic direct în browser (e.g. `LaMini-78M`), rulând complet izolat prin WebAssembly/WebGPU.
-- **Ollama**: Se conectează la un server local Ollama activ pe portul implicit `11434` al utilizatorului, utilizând modele mai mari pentru a genera răspunsuri complexe.
+- **Transformers.js**: Modul este reprezentat în interfață printr-o simulare de încărcare a unui model local, pentru demonstrarea conceptului de rulare AI în browser.
+- **Ollama**: Aplicația poate trimite cereri către un server local Ollama, dacă acesta este pornit pe portul 11434.
 
 ### 5. Testarea Automată și pipeline-ul CI/CD
 Aplicația folosește **Vitest** pentru rularea celor 14 teste automate ce verifică pathfinding-ul dinamic în caz de străzi blocate/demolate. Pipeline-ul de Integrare Continuă (**GitHub Actions**) din `.github/workflows/ci.yml` rulează automat suita de teste unitare și build-ul de producție la fiecare Pull Request deschis către ramurile `dev` și `main`.
