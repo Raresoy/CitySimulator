@@ -1,0 +1,772 @@
+[
+  {
+    "id": 1780934385489,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T15:59:45.489Z",
+    "action": "road_demolished",
+    "details": "STRADĂ DEMOLATĂ: Tronson N-S eliminat la poziția [4,0]"
+  },
+  {
+    "id": 1780934389550,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T15:59:49.550Z",
+    "action": "road_built",
+    "details": "STRADĂ NOUĂ CONSTRUITĂ: Tronson N-S la poziția [4,1]"
+  },
+  {
+    "id": 1780934390366,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T15:59:50.366Z",
+    "action": "road_built",
+    "details": "STRADĂ NOUĂ CONSTRUITĂ: Tronson N-S la poziția [4,2]"
+  },
+  {
+    "id": 1780934390984,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T15:59:50.984Z",
+    "action": "road_built",
+    "details": "STRADĂ NOUĂ CONSTRUITĂ: Tronson E-V la poziția [4,2]"
+  },
+  {
+    "id": 1780934393132,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T15:59:53.132Z",
+    "action": "road_built",
+    "details": "STRADĂ NOUĂ CONSTRUITĂ: Tronson E-V la poziția [3,1]"
+  },
+  {
+    "id": 1780934393566,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T15:59:53.566Z",
+    "action": "road_built",
+    "details": "STRADĂ NOUĂ CONSTRUITĂ: Tronson E-V la poziția [4,1]"
+  },
+  {
+    "id": 1780934394017,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T15:59:54.017Z",
+    "action": "road_built",
+    "details": "STRADĂ NOUĂ CONSTRUITĂ: Tronson N-S la poziția [4,0]"
+  },
+  {
+    "id": 1780934397282,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T15:59:57.282Z",
+    "action": "road_demolished",
+    "details": "STRADĂ DEMOLATĂ: Tronson N-S eliminat la poziția [3,2]"
+  },
+  {
+    "id": 1780934399583,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T15:59:59.583Z",
+    "action": "road_demolished",
+    "details": "STRADĂ DEMOLATĂ: Tronson E-V eliminat la poziția [2,3]"
+  },
+  {
+    "id": 1780934400183,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:00:00.183Z",
+    "action": "road_demolished",
+    "details": "STRADĂ DEMOLATĂ: Tronson E-V eliminat la poziția [1,3]"
+  },
+  {
+    "id": 1780934452101,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:00:52.101Z",
+    "action": "incident_spawn_click",
+    "details": "ACCIDENT PLASAT DE OPERATOR: Incendiu Carosabil pe tronsonul [3,3]"
+  },
+  {
+    "id": 1780934452141,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:00:52.141Z",
+    "action": "ambulance_dispatch",
+    "details": "Dispecerat: Ambulanța a plecat spre accident de la Spital. Traseu calculat cu prioritate semafoare."
+  },
+  {
+    "id": 1780934460391,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:01:00.391Z",
+    "action": "incident_resolved",
+    "details": "Incident soluționat pe tronsonul E-V [3,3]. Segment deschis circulației."
+  },
+  {
+    "id": 1780934513401,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:01:53.401Z",
+    "action": "incident_spawned",
+    "details": "APARIȚIE INCIDENT: Inundație Locală pe drumul E-V [3,3]"
+  },
+  {
+    "id": 1780934513424,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:01:53.424Z",
+    "action": "ambulance_dispatch",
+    "details": "Dispecerat: Ambulanța a plecat spre accident de la Spital. Traseu calculat cu prioritate semafoare."
+  },
+  {
+    "id": 1780934513751,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:01:53.751Z",
+    "action": "incident_spawned",
+    "details": "APARIȚIE INCIDENT: Incendiu Carosabil pe drumul N-S [0,0]"
+  },
+  {
+    "id": 1780934513935,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:01:53.935Z",
+    "action": "incident_spawned",
+    "details": "APARIȚIE INCIDENT: Inundație Locală pe drumul E-V [3,6]"
+  },
+  {
+    "id": 1780934514101,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:01:54.101Z",
+    "action": "incident_spawned",
+    "details": "APARIȚIE INCIDENT: Inundație Locală pe drumul N-S [6,2]"
+  },
+  {
+    "id": 1780934514249,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:01:54.249Z",
+    "action": "incident_spawned",
+    "details": "APARIȚIE INCIDENT: Coliziune Auto pe drumul N-S [3,3]"
+  },
+  {
+    "id": 1780934514399,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:01:54.399Z",
+    "action": "incident_spawned",
+    "details": "APARIȚIE INCIDENT: Inundație Locală pe drumul E-V [5,2]"
+  },
+  {
+    "id": 1780934514568,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:01:54.568Z",
+    "action": "incident_spawned",
+    "details": "APARIȚIE INCIDENT: Incendiu Carosabil pe drumul N-S [0,1]"
+  },
+  {
+    "id": 1780934514751,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:01:54.751Z",
+    "action": "incident_spawned",
+    "details": "APARIȚIE INCIDENT: Inundație Locală pe drumul E-V [3,1]"
+  },
+  {
+    "id": 1780934518735,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:01:58.735Z",
+    "action": "incident_spawn_click",
+    "details": "ACCIDENT PLASAT DE OPERATOR: Cablu Electric Doborât pe tronsonul [0,2]"
+  },
+  {
+    "id": 1780934521674,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:02:01.674Z",
+    "action": "incident_resolved",
+    "details": "Incident soluționat pe tronsonul E-V [3,3]. Segment deschis circulației."
+  },
+  {
+    "id": 1780934528525,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:02:08.525Z",
+    "action": "ambulance_dispatch",
+    "details": "Dispecerat: Ambulanța a plecat spre accident de la Spital. Traseu calculat cu prioritate semafoare."
+  },
+  {
+    "id": 1780934529575,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:02:09.575Z",
+    "action": "incident_resolved",
+    "details": "Incident soluționat pe tronsonul N-S [0,0]. Segment deschis circulației."
+  },
+  {
+    "id": 1780934529680,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:02:09.680Z",
+    "action": "ambulance_dispatch",
+    "details": "Dispecerat: Ambulanța a plecat spre accident de la Spital. Traseu calculat cu prioritate semafoare."
+  },
+  {
+    "id": 1780934538825,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:02:18.825Z",
+    "action": "incident_resolved",
+    "details": "Incident soluționat pe tronsonul E-V [3,6]. Segment deschis circulației."
+  },
+  {
+    "id": 1780934568911,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:02:48.911Z",
+    "action": "ambulance_dispatch",
+    "details": "Dispecerat: Ambulanța a plecat spre accident de la Spital. Traseu calculat cu prioritate semafoare."
+  },
+  {
+    "id": 1780934810505,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:06:50.505Z",
+    "action": "road_built",
+    "details": "STRADĂ NOUĂ CONSTRUITĂ: Tronson N-S la poziția [2,1]"
+  },
+  {
+    "id": 1780934811554,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:06:51.554Z",
+    "action": "road_built",
+    "details": "STRADĂ NOUĂ CONSTRUITĂ: Tronson N-S la poziția [2,2]"
+  },
+  {
+    "id": 1780934812119,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:06:52.119Z",
+    "action": "road_built",
+    "details": "STRADĂ NOUĂ CONSTRUITĂ: Tronson E-V la poziția [1,2]"
+  },
+  {
+    "id": 1780934812971,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:06:52.971Z",
+    "action": "road_built",
+    "details": "STRADĂ NOUĂ CONSTRUITĂ: Tronson E-V la poziția [2,2]"
+  },
+  {
+    "id": 1780934814237,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:06:54.237Z",
+    "action": "road_built",
+    "details": "STRADĂ NOUĂ CONSTRUITĂ: Tronson E-V la poziția [4,2]"
+  },
+  {
+    "id": 1780934814769,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:06:54.769Z",
+    "action": "road_built",
+    "details": "STRADĂ NOUĂ CONSTRUITĂ: Tronson N-S la poziția [4,1]"
+  },
+  {
+    "id": 1780934815151,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:06:55.151Z",
+    "action": "road_built",
+    "details": "STRADĂ NOUĂ CONSTRUITĂ: Tronson E-V la poziția [3,2]"
+  },
+  {
+    "id": 1780934815620,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:06:55.620Z",
+    "action": "road_built",
+    "details": "STRADĂ NOUĂ CONSTRUITĂ: Tronson N-S la poziția [4,2]"
+  },
+  {
+    "id": 1780934817103,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:06:57.103Z",
+    "action": "road_built",
+    "details": "STRADĂ NOUĂ CONSTRUITĂ: Tronson N-S la poziția [4,4]"
+  },
+  {
+    "id": 1780934828735,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:07:08.735Z",
+    "action": "incident_spawned",
+    "details": "APARIȚIE INCIDENT: Lucrări Drum pe drumul E-V [4,2]"
+  },
+  {
+    "id": 1780934828885,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:07:08.885Z",
+    "action": "incident_spawned",
+    "details": "APARIȚIE INCIDENT: Cablu Electric Doborât pe drumul N-S [5,0]"
+  },
+  {
+    "id": 1780934829053,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:07:09.053Z",
+    "action": "incident_spawned",
+    "details": "APARIȚIE INCIDENT: Coliziune Auto pe drumul E-V [0,6]"
+  },
+  {
+    "id": 1780934829195,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:07:09.195Z",
+    "action": "ambulance_dispatch",
+    "details": "Dispecerat: Ambulanța a plecat spre accident de la Spital. Traseu calculat cu prioritate semafoare."
+  },
+  {
+    "id": 1780934829203,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:07:09.203Z",
+    "action": "incident_spawned",
+    "details": "APARIȚIE INCIDENT: Cablu Electric Doborât pe drumul N-S [3,5]"
+  },
+  {
+    "id": 1780934829353,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:07:09.353Z",
+    "action": "incident_spawned",
+    "details": "APARIȚIE INCIDENT: Inundație Locală pe drumul N-S [5,5]"
+  },
+  {
+    "id": 1780934829502,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:07:09.502Z",
+    "action": "incident_spawned",
+    "details": "APARIȚIE INCIDENT: Inundație Locală pe drumul E-V [0,5]"
+  },
+  {
+    "id": 1780934829652,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:07:09.652Z",
+    "action": "incident_spawned",
+    "details": "APARIȚIE INCIDENT: Inundație Locală pe drumul E-V [5,4]"
+  },
+  {
+    "id": 1780934829818,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:07:09.818Z",
+    "action": "incident_spawned",
+    "details": "APARIȚIE INCIDENT: Cablu Electric Doborât pe drumul N-S [2,1]"
+  },
+  {
+    "id": 1780934829969,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:07:09.969Z",
+    "action": "incident_spawned",
+    "details": "APARIȚIE INCIDENT: Lucrări Drum pe drumul E-V [2,1]"
+  },
+  {
+    "id": 1780934830136,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:07:10.136Z",
+    "action": "incident_spawned",
+    "details": "APARIȚIE INCIDENT: Inundație Locală pe drumul N-S [1,5]"
+  },
+  {
+    "id": 1780934830302,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:07:10.302Z",
+    "action": "incident_spawned",
+    "details": "APARIȚIE INCIDENT: Inundație Locală pe drumul E-V [1,2]"
+  },
+  {
+    "id": 1780934830436,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:07:10.436Z",
+    "action": "incident_spawned",
+    "details": "APARIȚIE INCIDENT: Incendiu Carosabil pe drumul N-S [4,0]"
+  },
+  {
+    "id": 1780934830602,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:07:10.602Z",
+    "action": "incident_spawned",
+    "details": "APARIȚIE INCIDENT: Lucrări Drum pe drumul N-S [3,1]"
+  },
+  {
+    "id": 1780934830752,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:07:10.752Z",
+    "action": "incident_spawned",
+    "details": "APARIȚIE INCIDENT: Inundație Locală pe drumul N-S [3,0]"
+  },
+  {
+    "id": 1780934847094,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:07:27.094Z",
+    "action": "incident_resolved",
+    "details": "Incident soluționat pe tronsonul E-V [4,2]. Segment deschis circulației."
+  },
+  {
+    "id": 1780934856262,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:07:36.262Z",
+    "action": "ambulance_dispatch",
+    "details": "Dispecerat: Ambulanța a plecat spre accident de la Spital. Traseu calculat cu prioritate semafoare."
+  },
+  {
+    "id": 1780934896228,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:08:16.228Z",
+    "action": "incident_resolved",
+    "details": "Incident soluționat pe tronsonul N-S [5,0]. Segment deschis circulației."
+  },
+  {
+    "id": 1780934901162,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:08:21.162Z",
+    "action": "ambulance_dispatch",
+    "details": "Dispecerat: Ambulanța a plecat spre accident de la Spital. Traseu calculat cu prioritate semafoare."
+  },
+  {
+    "id": 1780934908360,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:08:28.360Z",
+    "action": "incident_resolved",
+    "details": "Incident soluționat pe tronsonul E-V [0,6]. Segment deschis circulației."
+  },
+  {
+    "id": 1780934914227,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:08:34.227Z",
+    "action": "ambulance_dispatch",
+    "details": "Dispecerat: Ambulanța a plecat spre accident de la Spital. Traseu calculat cu prioritate semafoare."
+  },
+  {
+    "id": 1780934923296,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:08:43.296Z",
+    "action": "incident_resolved",
+    "details": "Incident soluționat pe tronsonul N-S [3,5]. Segment deschis circulației."
+  },
+  {
+    "id": 1780934931028,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:08:51.028Z",
+    "action": "ambulance_dispatch",
+    "details": "Dispecerat: Ambulanța a plecat spre accident de la Spital. Traseu calculat cu prioritate semafoare."
+  },
+  {
+    "id": 1780934943828,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:09:03.828Z",
+    "action": "incident_resolved",
+    "details": "Incident soluționat pe tronsonul N-S [5,5]. Segment deschis circulației."
+  },
+  {
+    "id": 1780934955294,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:09:15.294Z",
+    "action": "ambulance_dispatch",
+    "details": "Dispecerat: Ambulanța a plecat spre accident de la Spital. Traseu calculat cu prioritate semafoare."
+  },
+  {
+    "id": 1780934961560,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:09:21.560Z",
+    "action": "incident_resolved",
+    "details": "Incident soluționat pe tronsonul E-V [0,5]. Segment deschis circulației."
+  },
+  {
+    "id": 1780934966495,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:09:26.495Z",
+    "action": "ambulance_dispatch",
+    "details": "Dispecerat: Ambulanța a plecat spre accident de la Spital. Traseu calculat cu prioritate semafoare."
+  },
+  {
+    "id": 1780934976494,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:09:36.494Z",
+    "action": "incident_resolved",
+    "details": "Incident soluționat pe tronsonul E-V [5,4]. Segment deschis circulației."
+  },
+  {
+    "id": 1780934985162,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:09:45.162Z",
+    "action": "ambulance_dispatch",
+    "details": "Dispecerat: Ambulanța a plecat spre accident de la Spital. Traseu calculat cu prioritate semafoare."
+  },
+  {
+    "id": 1780934989562,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:09:49.562Z",
+    "action": "incident_resolved",
+    "details": "Incident soluționat pe tronsonul N-S [2,1]. Segment deschis circulației."
+  },
+  {
+    "id": 1780934992629,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:09:52.629Z",
+    "action": "ambulance_dispatch",
+    "details": "Dispecerat: Ambulanța a plecat spre accident de la Spital. Traseu calculat cu prioritate semafoare."
+  },
+  {
+    "id": 1780934997029,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:09:57.029Z",
+    "action": "incident_resolved",
+    "details": "Incident soluționat pe tronsonul E-V [2,1]. Segment deschis circulației."
+  },
+  {
+    "id": 1780935000095,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:10:00.095Z",
+    "action": "ambulance_dispatch",
+    "details": "Dispecerat: Ambulanța a plecat spre accident de la Spital. Traseu calculat cu prioritate semafoare."
+  },
+  {
+    "id": 1780935007295,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:10:07.295Z",
+    "action": "incident_resolved",
+    "details": "Incident soluționat pe tronsonul N-S [1,5]. Segment deschis circulației."
+  },
+  {
+    "id": 1780935013160,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:10:13.161Z",
+    "action": "ambulance_dispatch",
+    "details": "Dispecerat: Ambulanța a plecat spre accident de la Spital. Traseu calculat cu prioritate semafoare."
+  },
+  {
+    "id": 1780935017560,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:10:17.560Z",
+    "action": "incident_resolved",
+    "details": "Incident soluționat pe tronsonul E-V [1,2]. Segment deschis circulației."
+  },
+  {
+    "id": 1780935020627,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:10:20.627Z",
+    "action": "ambulance_dispatch",
+    "details": "Dispecerat: Ambulanța a plecat spre accident de la Spital. Traseu calculat cu prioritate semafoare."
+  },
+  {
+    "id": 1780935025960,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:10:25.960Z",
+    "action": "incident_resolved",
+    "details": "Incident soluționat pe tronsonul N-S [4,0]. Segment deschis circulației."
+  },
+  {
+    "id": 1780935029962,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:10:29.962Z",
+    "action": "ambulance_dispatch",
+    "details": "Dispecerat: Ambulanța a plecat spre accident de la Spital. Traseu calculat cu prioritate semafoare."
+  },
+  {
+    "id": 1780935035293,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:10:35.293Z",
+    "action": "incident_resolved",
+    "details": "Incident soluționat pe tronsonul N-S [3,1]. Segment deschis circulației."
+  },
+  {
+    "id": 1780935039293,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:10:39.293Z",
+    "action": "ambulance_dispatch",
+    "details": "Dispecerat: Ambulanța a plecat spre accident de la Spital. Traseu calculat cu prioritate semafoare."
+  },
+  {
+    "id": 1780935043693,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:10:43.693Z",
+    "action": "incident_resolved",
+    "details": "Incident soluționat pe tronsonul N-S [3,0]. Segment deschis circulației."
+  },
+  {
+    "id": 1780935066569,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:11:06.569Z",
+    "action": "clear_all",
+    "details": "Toate incidentele au fost curățate de operator. Trafic restabilit."
+  },
+  {
+    "id": 1780935082552,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:11:22.552Z",
+    "action": "clear_all",
+    "details": "Toate incidentele au fost curățate de operator. Trafic restabilit."
+  },
+  {
+    "id": 1780935083253,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:11:23.253Z",
+    "action": "clear_all",
+    "details": "Toate incidentele au fost curățate de operator. Trafic restabilit."
+  },
+  {
+    "id": 1780935083434,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:11:23.434Z",
+    "action": "clear_all",
+    "details": "Toate incidentele au fost curățate de operator. Trafic restabilit."
+  },
+  {
+    "id": 1780935083608,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:11:23.608Z",
+    "action": "clear_all",
+    "details": "Toate incidentele au fost curățate de operator. Trafic restabilit."
+  },
+  {
+    "id": 1780935083769,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:11:23.769Z",
+    "action": "clear_all",
+    "details": "Toate incidentele au fost curățate de operator. Trafic restabilit."
+  },
+  {
+    "id": 1780935084001,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:11:24.001Z",
+    "action": "clear_all",
+    "details": "Toate incidentele au fost curățate de operator. Trafic restabilit."
+  },
+  {
+    "id": 1780935089118,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:11:29.118Z",
+    "action": "clear_all",
+    "details": "Toate incidentele au fost curățate de operator. Trafic restabilit."
+  },
+  {
+    "id": 1780935090835,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:11:30.835Z",
+    "action": "clear_all",
+    "details": "Toate incidentele au fost curățate de operator. Trafic restabilit."
+  },
+  {
+    "id": 1780935091584,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:11:31.584Z",
+    "action": "clear_all",
+    "details": "Toate incidentele au fost curățate de operator. Trafic restabilit."
+  },
+  {
+    "id": 1780935091768,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:11:31.768Z",
+    "action": "clear_all",
+    "details": "Toate incidentele au fost curățate de operator. Trafic restabilit."
+  },
+  {
+    "id": 1780935091935,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:11:31.935Z",
+    "action": "clear_all",
+    "details": "Toate incidentele au fost curățate de operator. Trafic restabilit."
+  },
+  {
+    "id": 1780935092085,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:11:32.085Z",
+    "action": "clear_all",
+    "details": "Toate incidentele au fost curățate de operator. Trafic restabilit."
+  },
+  {
+    "id": 1780935092235,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:11:32.235Z",
+    "action": "clear_all",
+    "details": "Toate incidentele au fost curățate de operator. Trafic restabilit."
+  },
+  {
+    "id": 1780935092385,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:11:32.385Z",
+    "action": "clear_all",
+    "details": "Toate incidentele au fost curățate de operator. Trafic restabilit."
+  },
+  {
+    "id": 1780935092535,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:11:32.535Z",
+    "action": "clear_all",
+    "details": "Toate incidentele au fost curățate de operator. Trafic restabilit."
+  },
+  {
+    "id": 1780937509456,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:51:49.456Z",
+    "action": "road_demolished",
+    "details": "STRADĂ DEMOLATĂ: Tronson E-V eliminat la poziția [2,2]"
+  },
+  {
+    "id": 1780937510067,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:51:50.068Z",
+    "action": "road_demolished",
+    "details": "STRADĂ DEMOLATĂ: Tronson E-V eliminat la poziția [3,2]"
+  },
+  {
+    "id": 1780937511602,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:51:51.602Z",
+    "action": "road_demolished",
+    "details": "STRADĂ DEMOLATĂ: Tronson N-S eliminat la poziția [3,2]"
+  },
+  {
+    "id": 1780937512668,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:51:52.668Z",
+    "action": "road_demolished",
+    "details": "STRADĂ DEMOLATĂ: Tronson N-S eliminat la poziția [2,2]"
+  },
+  {
+    "id": 1780937513602,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:51:53.602Z",
+    "action": "road_demolished",
+    "details": "STRADĂ DEMOLATĂ: Tronson E-V eliminat la poziția [1,2]"
+  },
+  {
+    "id": 1780937520986,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:52:00.986Z",
+    "action": "incident_spawn_click",
+    "details": "ACCIDENT PLASAT DE OPERATOR: Lucrări Drum pe tronsonul [3,3]"
+  },
+  {
+    "id": 1780937521010,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:52:01.010Z",
+    "action": "ambulance_dispatch",
+    "details": "Dispecerat: Ambulanța a plecat spre accident de la Spital. Traseu calculat cu prioritate semafoare."
+  },
+  {
+    "id": 1780937523262,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:52:03.262Z",
+    "action": "incident_resolved",
+    "details": "Incident soluționat pe tronsonul E-V [3,3]. Segment deschis circulației."
+  },
+  {
+    "id": 1780937531154,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:52:11.154Z",
+    "action": "incident_spawn_click",
+    "details": "ACCIDENT PLASAT DE OPERATOR: Incendiu Carosabil pe tronsonul [5,3]"
+  },
+  {
+    "id": 1780937531166,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:52:11.166Z",
+    "action": "ambulance_dispatch",
+    "details": "Dispecerat: Ambulanța a plecat spre accident de la Spital. Traseu calculat cu prioritate semafoare."
+  },
+  {
+    "id": 1780937539120,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:52:19.120Z",
+    "action": "clear_all",
+    "details": "Toate incidentele au fost curățate de operator. Trafic restabilit."
+  },
+  {
+    "id": 1780937544736,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:52:24.736Z",
+    "action": "incident_spawn_click",
+    "details": "ACCIDENT PLASAT DE OPERATOR: Inundație Locală pe tronsonul [4,3]"
+  },
+  {
+    "id": 1780937545660,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:52:25.660Z",
+    "action": "ambulance_dispatch",
+    "details": "Dispecerat: Ambulanța a plecat spre accident de la Spital. Traseu calculat cu prioritate semafoare."
+  },
+  {
+    "id": 1780937553538,
+    "username": "mihnea.vicol@yahoo.com",
+    "timestamp": "2026-06-08T16:52:33.538Z",
+    "action": "clear_all",
+    "details": "Toate incidentele au fost curățate de operator. Trafic restabilit."
+  }
+]
