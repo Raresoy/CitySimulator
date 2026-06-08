@@ -1,113 +1,81 @@
-# Architecture
+# Arhitectura Sistemului - Smart City Simulator
 
-The Smart City Simulator uses a simple web architecture based on a React frontend, a simulation engine and multiple AI agents.
+Smart City Simulator folosește o arhitectură web integrată, bazată pe React (frontend), un motor de simulare grafic pe Canvas și un backend serverless integrat în serverul de dezvoltare Vite (Connect middleware).
 
-## Architecture diagram
+## Diagrama Arhitecturii
 
 ```mermaid
 flowchart TD
-    User[User] --> UI[Frontend UI]
-    UI --> Map[City Map]
-    UI --> Dashboard[Dashboard]
-    UI --> Controls[Control Panel]
-
-    Controls --> Engine[Simulation Engine]
-    Engine --> State[City State]
-
-    State --> TrafficAgent[Traffic Manager Agent]
-    State --> EmergencyAgent[Emergency Response Agent]
-    State --> EnergyAgent[Energy Manager Agent]
-
-    TrafficAgent --> Decisions[Agent Decisions]
-    EmergencyAgent --> Decisions
-    EnergyAgent --> Decisions
-
-    Decisions --> Dashboard
-    Decisions --> Map
+    User[Utilizator] -->|Click / Interacțiune| UI[Interfață React]
+    UI -->|Pornire/Oprire/Viteză| Controller[Control Panel]
+    UI -->|Autentificare / Salvare Istoric| Middleware[Vite Dev Server API Middleware]
+    
+    Middleware -->|Citește/Scrie| DB[(Mock DB: JSON Files)]
+    
+    Controller -->|Modificări Hartă / Moduri| CityMap[CityMap Canvas Component]
+    
+    subgraph Simulation Loop (60 FPS)
+        CityMap -->|Citește Străzi/Stare| Engine[Simulation Engine]
+        Engine -->|BFS Pathfinding| Rerouting[Dynamic Router]
+        Rerouting -->|Mută Vehicule| Vehicles[Cars Ref]
+        Engine -->|Urmărește Accidente| Ambulance[Ambulance Dispatch Ref]
+    end
+    
+    Vehicles -->|Update Date Ticks| UI
+    Ambulance -->|Update Date Evenimente| Log[AI Agent Log]
+    
+    subgraph AI Decision Layer
+        Log -->|Analiză date & Prompts| TrafficAgent[Traffic Agent]
+        Log -->|Dispecerat Ambulanță| EmergencyAgent[Emergency Agent]
+        Log -->|Protocol ECO - Dimming| EnergyAgent[Energy Agent]
+    end
 ```
 
-## Main components
+---
 
-### Frontend UI
+## Componente Principale
 
-The frontend displays the simulated city and allows the user to interact with the simulation.
+### 1. Frontend Shell & State Management (`App.jsx`)
+- Gestionează starea de autentificare (dacă utilizatorul nu este logat, se afișează `Auth.jsx`).
+- Coordonează sincronizarea metricilor venite din bucla Canvas (ticks, debit trafic, număr blocaje, incidente) și le trimite către panourile secundare.
+- Salvează acțiunile operatorului (construcție străzi, incident rezolvat) apelând backend-ul local `/api/simulation/save`.
 
-It includes:
+### 2. Vite Dev Server API Middleware (`vite.config.js`)
+Pentru a evita nevoia pornirii unui al doilea proces Node.js, am utilizat hook-ul `configureServer` din Vite pentru a integra un API direct în serverul de dev:
+- `/api/auth/register` & `/api/auth/login`: Înregistrează și validează credențialele utilizatorilor în `data/users.json`.
+- `/api/simulation/save` & `/api/simulation/history`: Salvează și returnează istoricul rulărilor în `data/history.json`.
+- `/api/ai/proxy`: Intermediază cererile către instanța locală de Ollama (`http://localhost:11434`), rezolvând problemele de CORS.
 
-- city map
-- dashboard
-- control panel
-- visual representation of vehicles, roads, buildings and incidents
+### 3. React Canvas Renderer (`CityMap.jsx`)
+- Rulează o buclă `requestAnimationFrame` la 60 FPS.
+- **Optimizare Performanță:** Mutarea mașinilor și desenarea lor se fac direct pe Canvas utilizând referințe (`useRef`), ocolind reconcilierea DOM-ului virtual React pentru a menține 60 FPS stabili.
+- Trimite actualizări de stare către React doar o dată la fiecare Tick al simulării (o frecvență mult mai mică, controlată de viteză).
 
-### Simulation Engine
+---
 
-The simulation engine updates the city state.
+## Algoritmi & Logica Simulării
 
-It handles:
+### Căutarea în lățime (BFS Pathfinding)
+Harta orașului este modelată ca un graf de tip grilă de dimensiune $7 \times 7$. Fiecare intersecție reprezintă un nod. Legăturile dintre intersecții reprezintă străzi (maximum 84 de segmente).
 
-- vehicle movement
-- traffic density
-- congestion detection
-- incident generation
-- incident resolution
-- city status updates
+Algoritmul BFS calculează drumul cel mai scurt între două intersecții conform regulilor:
+1. **Vehicule Civile:** Nu pot folosi străzi neconstruite (`built = false`) și ocolesc străzile blocate de un incident (`blocked = true`).
+2. **Ambulantă (Prioritar):** Nu poate folosi străzi neconstruite (lipsă asfalt), dar ignoră blocajele rutiere (`ignoreBlocked = true`) deoarece are prioritate de deplasare la semafor.
 
-### AI Agents
-
-The project includes multiple AI agents that make automatic decisions based on the current state of the city.
-
-#### Traffic Manager Agent
-
-Responsibilities:
-
-- analyzes road congestion
-- detects traffic problems
-- recommends traffic optimization decisions
-
-#### Emergency Response Agent
-
-Responsibilities:
-
-- detects active incidents
-- sends emergency response decisions
-- requests priority for emergency situations
-
-#### Energy Manager Agent
-
-Responsibilities:
-
-- monitors city energy usage
-- identifies high energy usage situations
-- recommends energy saving decisions
-
-### City State
-
-The city state contains the current simulation data.
-
-It includes:
-
-- roads
-- vehicles
-- buildings
-- incidents
-- traffic levels
-- energy usage
-- agent decisions
-
-## Data flow
-
+### Ciclul de Viață al unui Incident (Emergency Dispatch)
 ```text
-User action
-   |
-Control Panel
-   |
-Simulation Engine
-   |
-Updated City State
-   |
-AI Agents analyze state
-   |
-Agent decisions
-   |
-Dashboard and City Map update
+[Incident Generat] 
+       ↓ (Detectat de Emergency Agent)
+[Spawnează Ambulanță la Spital (0,0)]
+       ↓ (BFS Pathfinding cu prioritate)
+[Ambulantă se deplasează spre accident]
+       ↓ (Ajunge la destinație)
+[Așteaptă 12 ticks pentru acordare prim ajutor]
+       ↓ (Incident rezolvat: Strada se redeschide)
+[Recalculare traseu înapoi la Spital]
+       ↓ (Ambulanța ajunge la Spital)
+[Dezafectare ambulanță]
 ```
+
+### Optimizarea Consumului (ECO Mode)
+Când numărul de vehicule depășește 23, Agentul de Energie ordonă trecerea în modul ECO. Vizual, clădirile și stâlpii își sting ferestrele și luminile în Canvas pentru a reduce consumul pe rețea cu 30%.

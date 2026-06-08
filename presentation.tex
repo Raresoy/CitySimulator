@@ -1,0 +1,181 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[romanian]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{geometry}
+\usepackage{xcolor}
+
+\geometry{margin=1in}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdftitle={Smart City Simulator - Proiect Colectiv MDS},
+    pdfpagemode=FullScreen,
+}
+
+\lstset{
+    backgroundcolor=\color{lightgray!15},
+    basicstyle=\ttfamily\footnotesize,
+    breaklines=true,
+    captionpos=b,
+    commentstyle=\color{green!60!black},
+    keywordstyle=\color{blue},
+    stringstyle=\color{orange},
+    frame=single,
+    keepspaces=true,
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    stepnumber=1,
+}
+
+\title{\textbf{Smart City Simulator}\\Raport Tehnic Detaliat --- Proiect Colectiv MDS}
+\author{\textbf{Echipa de Proiect MDS}}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Smart City Simulator reprezintă o platformă interactivă de înaltă fidelitate concepută pentru modelarea și analizarea dinamicii traficului, managementului situațiilor de urgență și optimizării energetice într-un mediu urban inteligent. Proiectul integrează componente React moderne, randare grafică optimizată pe Canvas la 60 FPS folosind concepte de fizică pe bază de delta time și un sistem format din trei agenți inteligenți (Trafic, Urgențe, Energie) cu capabilități de decizie locală (inclusiv suport offline, rulare de LLM-uri direct în browser via Transformers.js și integrare prin proxy cu Ollama). Acest raport descrie în detaliu arhitectura sistemului, metodologiile de implementare, optimizările grafice și procedurile de testare automată dezvoltate pentru asigurarea calității software conform cerințelor disciplinei Proiectarea Sistemelor Software (MDS).
+\end{abstract}
+
+\tableofcontents
+\newpage
+
+\section{Introducere și Obiectivele Proiectului}
+Disciplina „Metode de Dezvoltare Software” (MDS) impune crearea unui proiect colectiv care să utilizeze tehnologii moderne și, în special, instrumente bazate pe Inteligență Artificială (AI) în toate etapele ciclului de viață al dezvoltării software (analiză, design, implementare, testare și documentare). 
+
+Obiectivul principal al proiectului \textbf{Smart City Simulator} este dezvoltarea unei simulări urbane interactive în care un operator uman poate coopera cu agenți AI pentru gestionarea infrastructurii unui oraș. Aplicația oferă o simulare de trafic dinamică, posibilitatea construirii și demolării drumurilor în timp real, apariția aleatorie sau manuală a incidentelor (coliziuni auto, incendii, drumuri inundate) și rezolvarea automată a acestora prin dispatch-ul unui vehicul de intervenție prioritizat (ambulanța).
+
+\section{Arhitectura Sistemului și Structura Directoarelor}
+Aplicația este construită pe o structură hibridă \textbf{React + Vite}. Pentru a evita necesitatea unei configurări complicate de baze de date (SQLite/PostgreSQL) pe mașina asistentului de laborator care va evalua live demo-ul, am conceput o arhitectură serverless-hybrid prin scrierea unui middleware direct în configurarea serverului de dezvoltare Vite (\texttt{vite.config.js}).
+
+\subsection{Structura Proiectului}
+Codul sursă este organizat logic în următoarele directoare principale:
+\begin{itemize}
+    \item \textbf{\texttt{frontend/data/}}: Fișiere JSON utilizate ca baze de date locale pentru persistență (\texttt{users.json} pentru conturi și \texttt{history.json} pentru log-uri și scoruri).
+    \item \textbf{\texttt{frontend/src/components/}}: Componentele React ale interfeței de utilizator:
+    \begin{itemize}
+        \item \texttt{Auth.jsx}: Autentificare (Înregistrare/Autentificare) securizată cu design modern.
+        \item \texttt{CityMap.jsx}: Componenta nucleu care conține logica Canvas-ului grafic și randarea HUD-urilor plutitoare.
+        \item \texttt{Dashboard.jsx}: Panoul cu statistici și sparkline-uri istorice vectoriale (SVG).
+        \item \texttt{AICenter.jsx}: Panoul de control al agenților AI (setări model, log-uri de decizie, chat cu AI).
+        \item \texttt{LearningCenter.jsx}: Modulul educațional ce detaliază tehnicile React/Vite folosite.
+    \end{itemize}
+    \item \textbf{\texttt{frontend/src/engine/simulation.js}}: Motorul matematic de simulare (pathfinding BFS, calculul distanțelor, generarea hărții implicite și determinarea gradului de congestie).
+    \item \textbf{\texttt{frontend/src/agents/}}: Logica de decizie locală a agenților AI (Trafic, Urgențe, Energie).
+    \item \textbf{\texttt{frontend/src/\_\_tests\_\_/}}: Suitele de teste automate scrise în Vitest.
+\end{itemize}
+
+\subsection{Middleware-ul API Integrat în Vite}
+Am utilizat hook-ul \texttt{configureServer} din \texttt{vite.config.js} pentru a intercepta cererile HTTP către ruta \texttt{/api/*}. Acest mecanism acționează ca un backend micro-service:
+\begin{itemize}
+    \item \textbf{Criptare Simplă și Persistență}: Parolele utilizatorilor sunt stocate sub formă de hash-uri în \texttt{users.json}.
+    \item \textbf{Ollama Proxy}: Redirecționează prompt-urile trimise de interfață către serverul local Ollama (\texttt{http://localhost:11434}) pentru a evita erorile de CORS (Cross-Origin Resource Sharing).
+\end{itemize}
+
+\section{Tehnici de Optimizare și Randare Grafică la 60 FPS}
+Pentru a obține o experiență vizuală premium, fluidă și lipsită de sacadare (rezolvând problema redării fragmentate de tip slideshow/„semi poze”), am implementat o serie de optimizări matematice și grafice la nivelul Canvas-ului.
+
+\subsection{Sistemul de Animație pe bază de Delta Time}
+Într-o buclă tradițională de animație bazată exclusiv pe cadre (\texttt{requestAnimationFrame}), viteza vehiculelor depinde direct de rata de refresh a ecranului. Pe un ecran cu lag sau pe un monitor de 120Hz, simularea ar rula fie prea încet, fie prea repede. 
+
+Am reconfigurat simulatorul să calculeze diferența de timp (\textit{delta time} --- \texttt{dt}) între cadre:
+\begin{equation}
+    dt = \text{timestamp}_{\text{curent}} - \text{timestamp}_{\text{anterior}}
+\end{equation}
+Acest $dt$ este utilizat pentru a scala proporțional deplasarea vehiculelor și interpolările:
+\begin{lstlisting}[language=JavaScript]
+// Scalarea deplasarii masinilor in functie de dt
+car.progress += speedFactorVal * car.speedFactor * (speed / 2) * (dt / 16.67);
+\end{lstlisting}
+Astfel, la o rată ideală de 60 FPS ($dt \approx 16.67$ ms), mișcarea este identică cu cea inițială, însă devine perfect liniară și fluidă indiferent de fluctuațiile ratei de cadre a browserului.
+
+\subsection{Interpolarea Congestiei Drumurilor (Smooth Color Fade)}
+Anterior, străzile își schimbau culoarea (verde, galben, roșu) instantaneu la fiecare pas de simulare logică, producând flash-uri inestetice. Am introdus o proprietate vizuală intermediară numită \texttt{visualCongestion} care aproximează exponențial valoarea logică reală a congestiei:
+\begin{equation}
+    C_{\text{vizual}} \leftarrow C_{\text{vizual}} + (C_{\text{real}} - C_{\text{vizual}}) \times (1 - e^{-0.008 \times dt})
+\end{equation}
+Această ecuație de atenuare exponențială (exponential decay) asigură că atunci când o stradă se aglomerează sau se eliberează, culorile trec lin printr-un gradient RGB continuu, creând un efect vizual plăcut de tranziție lentă.
+
+\subsection{Deplasarea Continuă și Evitarea Blocajelor la Intersecții}
+O sursă majoră de sacadare o reprezentau mașinile care înghețau complet în intersecții la finalul rutei lor, așteptând ca bucla logică (throttled) să le asigneze un nou traseu. Am mutat logica de respawn direct în pasul de update vizual (care rulează la fiecare cadru):
+\begin{lstlisting}[language=JavaScript]
+if (car.progress >= 1.0) {
+  car.progress = 0.0;
+  car.gx = next.gx;
+  car.gy = next.gy;
+  car.step++;
+  
+  if (car.step >= car.path.length - 1) {
+    // Ruteaza imediat vehiculul catre o alta destinatie fara pauza
+    const newCar = spawnCar(s.roads);
+    if (newCar) Object.assign(car, newCar);
+  }
+}
+\end{lstlisting}
+Prin această metodă, fluxul de vehicule devine neîntrerupt, eliminând timpii morți la colțurile rețelei de străzi.
+
+\subsection{Glow Neon Optimizat și Redesenarea Vehiculelor ca Capsule Orientate}
+ Randarea efectului de strălucire folosind API-ul nativ \texttt{shadowBlur} al Canvas-ului este o operație extrem de costisitoare, deoarece aplică un filtru de blur Gaussian pe procesorul sistemului. Pentru 30 de vehicule, acest lucru bloca bucla grafică.
+
+Am optimizat acest aspect prin implementarea unui glow neon multi-pass:
+\begin{enumerate}
+    \item Desenăm o capsulă (dreptunghi cu colțuri rotunjite) mai mare, cu o opacitate foarte redusă ($22\%$), având culoarea mașinii.
+    \item Desenăm corpul solid al mașinii peste aceasta, la opacitate maximă ($100\%$).
+    \item Calculăm unghiul de deplasare dintre intersecția curentă $p_1$ și următoarea $p_2$ folosind \texttt{Math.atan2(dy, dx)}.
+    \item Rotim contextul grafic (\texttt{ctx.rotate}) pentru a orienta vehiculul pe direcția de mers.
+    \item Desenăm faruri albe în față și stopuri roșii în spate.
+\end{enumerate}
+Ambulancia a fost redesenată la dimensiuni mai mari, cu o cruce roșie pe plafon, faruri/stopuri active și un semnal luminos (sirenă) care pulsează alternant în nuanțe roșii și albastre pe baza funcției de timp continuu \texttt{performance.now()}.
+
+\section{Integrarea Agenților AI}
+Simulatorul folosește trei agenți software inteligenți specializați:
+\begin{enumerate}
+    \item \textbf{Agentul de Trafic}: Monitorizează densitatea mașinilor. În caz de congestie ridicată, ajustează timpii semafoarelor și aplică reguli de prioritate pe segmentele încărcate.
+    \item \textbf{Agentul de Urgență}: Detectează accidentele plasate de utilizator sau generate aleator. Trimite ambulanța de la spital către incident folosind un pathfinding prioritar (care ignoră blocajele temporare), eliberează drumul după remediere și readuce ambulanța la bază.
+    \item \textbf{Agentul de Energie (ECO Mode)}: Dacă aglomerația orașului crește consumul general, agentul comandă stingerea treptată a ferestrelor clădirilor și reducerea iluminatului stradal pentru economisirea energiei electrice.
+\end{enumerate}
+
+\subsection{Moduri de Rulare LLM pentru Evaluare Flexibilă}
+Pentru a garanta funcționarea pe orice sistem la prezentarea live, am implementat 3 moduri selectabile din panoul AI:
+\begin{itemize}
+    \item \textbf{Offline Smart Agent (Implicit)}: Reguli euristice avansate combinate cu un generator de explicații și rapoarte text care injectează „halucinații SF” amuzante reglabile prin slider. Funcționează instant, fără conexiuni externe.
+    \item \textbf{Transformers.js (Browser-Local)}: Descarcă un model LLM mic direct în memoria browserului (e.g. \texttt{LaMini-78M}), rulând complet izolat prin WebAssembly/WebGPU.
+    \item \textbf{Ollama}: Se conectează la un server local Ollama activ pe portul implicit \texttt{11434} al utilizatorului, utilizând modele mai mari (Llama 3, Phi 3) pentru a genera răspunsuri complexe despre starea orașului.
+\end{itemize}
+
+\section{Testarea Automată și pipeline-ul CI/CD}
+Calitatea codului este protejată de un set de 14 teste unitare rulate prin framework-ul \textbf{Vitest}. Acestea testează comportamentul funcțional al pathfinding-ului în situații extreme (evitarea drumurilor demolate, comportamentul ambulanței pe drumuri blocate).
+
+Fiecare Pull Request deschis către ramurile de dezvoltare (\texttt{dev}, \texttt{main}) declanșează automat un pipeline de integrare continuă în \textbf{GitHub Actions}:
+\begin{enumerate}
+    \item Face checkout la codul sursă.
+    \item Configurează mediul Node.js.
+    \item Instalează curat dependențele cu \texttt{npm ci}.
+    \item Rulează suita de teste automate.
+    \item Compilează aplicația pentru producție pentru a se asigura că nu există erori de sintaxă sau de import.
+\end{enumerate}
+
+\section{Concluzii și Direcții Viitoare}
+Smart City Simulator atinge toate criteriile stabilite în programa disciplinei MDS:
+\begin{itemize}
+    \item Implementare modulară în React + Vite.
+    \item Optimizări de performanță pentru randare 60 FPS fluidă și dinamică.
+    \item Integrarea a 3 agenți AI cu multiple moduri de rulare (inclusiv local și offline).
+    \item Suite de teste unitare automate și configurarea fluxului CI/CD.
+    \item Documentație bogată, user stories detaliate și diagrame UML de arhitectură.
+\end{itemize}
+Ca direcții viitoare, proiectul poate fi extins prin adăugarea de linii de transport public (autobuze, metrou) gestionate de un al patrulea agent AI și simularea ciclurilor noapte-zi complete.
+
+\end{document}
