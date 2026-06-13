@@ -164,8 +164,7 @@ const apiMiddleware = {
   }
 }
 
-// https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), apiMiddleware],
+  base: process.env.GITHUB_PAGES === 'true' ? '/CitySimulator/' : '/',
 })
-
