@@ -53,9 +53,14 @@ Am definit 10 User Stories care acoperă toate funcționalitățile dezvoltate:
 ---
 
 ### 2. Diagrame (UML, Arhitectură, Workflows) (1 pct)
-Diagramele sunt incluse în documentația proiectului.
 
----
+Proiectul include următoarele diagrame UML documentate în `docs/diagrams/`:
+
+- **Use Case Diagram** – ilustrează interacțiunile dintre utilizatori (cetățean, operator, administrator) și funcționalitățile principale ale simulatorului.
+- **Component Diagram** – prezintă arhitectura sistemului: frontend React, middleware Vite serverless, agenții AI și fișierele de stocare locală.
+- **Class Diagram** – descrie structura principalelor clase și relațiile dintre ele (vehicule, agenți, hartă, incidente).
+- **Sequence Diagram: Traffic Optimization** – ilustrează fluxul de comunicare dintre Agentul de Trafic, semafoare și vehicule în cazul unei congestii detectate.
+- **Sequence Diagram: Emergency Incident** – ilustrează fluxul de dispatch al ambulanței de la detectarea incidentului până la întoarcerea la spital.
 
 ### 3. Source Control cu Git (1 pct)
 
